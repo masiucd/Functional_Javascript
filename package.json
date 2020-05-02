@@ -1,0 +1,11 @@
+{
+  "name": "fp_in_js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Masiu <ciszekmarcell@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "node-fetch": "^2.6.0"
+  }
+}
