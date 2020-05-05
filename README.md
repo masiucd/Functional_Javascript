@@ -10,3 +10,6 @@ Some tips and tricks how you can write functional code in your JS apps. λ⚛️
 - mutable vs immutable
 - function composition
 - point free programming
+- reduce function
+
+
