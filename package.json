@@ -4,12 +4,31 @@
   "main": "index.js",
   "author": "Masiu <ciszekmarcell@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "compile": "tsc"
+  },
   "dependencies": {
     "axios": "^0.19.2",
     "node-fetch": "^2.6.0"
   },
   "repository": "https://github.com/masiuciszek/Functional_Javascript.git",
   "devDependencies": {
-    "jest": "^26.0.1"
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/jest": "^25.2.1",
+    "jest": "^26.0.1",
+    "ts-jest": "^25.5.1",
+    "typescript": "^3.8.3"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
   }
 }

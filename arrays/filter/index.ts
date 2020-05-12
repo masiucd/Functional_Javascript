@@ -1,4 +1,10 @@
-const lessons = [
+export interface Lessons {
+  title: string;
+  views: number;
+  tags: string[];
+}
+
+const lessons: Lessons[] = [
   {
     title: 'Javascript Arrays in Depth - join',
     views: 960,
@@ -28,4 +34,4 @@ const filterLessons = lessons.filter(
   lesson => lesson.views >= minViews && lesson.tags.indexOf(searchTerm) > -1
 );
 
-console.log(filterLessons);
+export { lessons, minViews, searchTerm, filterLessons };
