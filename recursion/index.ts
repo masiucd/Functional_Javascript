@@ -38,4 +38,26 @@ function findNum(items: Array<any>, n: number): string {
 // console.log(findNum(numbers, 6));
 // console.log(findNum(number2, 6));
 
-export { findNum, count, counterWithForLoop, number2, numbers };
+function sumArray(arr: number[]): number {
+  let res = 0;
+  for (let i = 0; i < arr.length; i++) {
+    res += arr[i];
+  }
+  return res;
+}
+
+function sumArrayRec(arr: number[]): number {
+  if (arr.length === 0) return 0;
+  return arr[0] + sumArrayRec(arr.slice(1));
+}
+// console.log(sumArrayRec([1, 2, 3, 4, 5]));
+
+export {
+  findNum,
+  count,
+  counterWithForLoop,
+  number2,
+  numbers,
+  sumArray,
+  sumArrayRec,
+};
