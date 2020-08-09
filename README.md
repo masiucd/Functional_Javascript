@@ -1,5 +1,4 @@
 <p align="center">
-
  <img width=200px height=200px src="https://cdn0.iconfinder.com/data/icons/glyphpack/60/function-128.png" alt="Project logo">
 </p>
 
