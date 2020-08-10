@@ -16,7 +16,7 @@
 ---
 
 <p align="center">
-Writing functional programming is a very powerful programing paradigm that I really like and trying to get better at for every day. I think it is a relly big trend now a days. Many people see the benefits of writing functional programs.
+Writing functional programming is a very powerful programing paradigm that I really like and trying to get better at for every day. I think it is a really big trend now a days. Many people see the benefits of writing functional programs that are based on pure functions and to avoid side effects in your programs.
 
     <br>
 
@@ -71,6 +71,8 @@ Nothing to install!
 
 ## 🔧 Running the tests <a name = "tests"></a>
 
+Will run the test inside test folder
+
 ``` bash
   yarn test
   # or
@@ -97,6 +99,17 @@ Give an example
 
 Just want to get better in writing functional code and share my knowledge.
 
+**Functional concepts**
+
+* Currying
+* pure functions
+* partial applications
+* mutable vs immutable
+* function composition
+* point free programming
+* reduce function
+* recursion
+
 ## ⛏️ Built Using <a name = "built_using"></a>
 
 * [JS](https://developer.mozilla.org/en-US/) - Javascript
@@ -110,6 +123,5 @@ Just want to get better in writing functional code and share my knowledge.
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
-* Hat tip to anyone whose code was used
 * Kent C. Dodds, Kyle Simpson, Kyle Shevlin, Tyler Clark
 * FreeCode camp, Egghead io , LevelUp Tutorials
