@@ -17,4 +17,12 @@ function listAllChars(obj) {
   );
 }
 
-console.log(listAllChars(game));
+function addChar(obj, char) {
+  obj.characters.push(char);
+}
+
+// console.log(listAllChars(game));
+
+addChar(game, { name: "Hector", age: 31, gender: 0 });
+
+console.log(game.characters);
