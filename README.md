@@ -1,15 +1,9 @@
-<p align="center">
- <img width=200px height=200px src="https://cdn0.iconfinder.com/data/icons/glyphpack/60/function-128.png" alt="Project logo">
+<p align="center" <img width=200px height=200px src="https://cdn0.iconfinder.com/data/icons/glyphpack/60/function-128.png" alt="Project logo">
 </p>
 
-<h3 align="center">fp_in_js</h3>
+<h3 align="center">functional programming , Javascript</h3>
 
 <div align="center">
-
-<!-- [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE) -->
 
 </div>
 
@@ -24,25 +18,21 @@ Writing functional programming is a very powerful programing paradigm that I rea
 
 ## 📝 Table of Contents
 
-* [About](#about)
-* [Getting Started](#getting_started)
-* [Deployment](#deployment)
-* [Usage](#usage)
-* [Built Using](#built_using)
-* [TODO](../TODO.md)
-* [Contributing](../CONTRIBUTING.md)
-* [Authors](#authors)
-* [Acknowledgments](#acknowledgement)
+- [About](#about)
+- [Getting Started](#getting_started)
+- [Deployment](#deployment)
+- [Usage](#usage)
+- [Built Using](#built_using)
 
 ## 🧐 About <a name = "about"></a>
 
 Functional programming is about:
 
-1) Isolated functions - there is no dependence on the state of the program, which includes global variables that are subject to change
+1. Isolated functions - there is no dependence on the state of the program, which includes global variables that are subject to change
 
-2) Pure functions - the same input always gives the same output
+2. Pure functions - the same input always gives the same output
 
-3) Functions with limited side effects - any changes, or mutations, to the state of the program outside the function are carefully controlled
+3. Functions with limited side effects - any changes, or mutations, to the state of the program outside the function are carefully controlled
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
@@ -52,7 +42,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them.
 
-``` 
+```
 Give examples
 ```
 
@@ -60,7 +50,7 @@ Give examples
 
 A step by step series of examples that tell you how to get a development env running.
 
-``` sh
+```sh
   git clone <Project url>
   cd into <Project>
 
@@ -73,27 +63,11 @@ Nothing to install!
 
 Will run the test inside test folder
 
-``` bash
+```bash
   yarn test
   # or
   yarn test --watch
 ```
-
-<!-- ### Break down into end to end tests
-
-Explain what these tests test and why
-
-``` 
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-``` -->
 
 ## 🎈 Usage <a name="usage"></a>
 
@@ -101,27 +75,28 @@ Just want to get better in writing functional code and share my knowledge.
 
 **Functional concepts**
 
-* Currying
-* pure functions
-* partial applications
-* mutable vs immutable
-* function composition
-* point free programming
-* reduce function
-* recursion
+- Currying
+- pure functions
+- partial applications
+- mutable vs immutable
+- function composition
+- point free programming
+- reduce function
+- recursion
+- basic data structures in javascript
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
-* [JS](https://developer.mozilla.org/en-US/) - Javascript
-* [TS](https://www.typescriptlang.org/) - Typescript
+- [JS](https://developer.mozilla.org/en-US/) - Javascript
+- [TS](https://www.typescriptlang.org/) - Typescript
 
 ## ✍️ Authors <a name = "authors"></a>
 
-* [@masiuciszek](https://github.com/masiuciszek) - Idea & Initial work
+- [@masiuciszek](https://github.com/masiuciszek) - Idea & Initial work
 
 <!-- See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project. -->
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
-* Kent C. Dodds, Kyle Simpson, Kyle Shevlin, Tyler Clark
-* FreeCode camp, Egghead io , LevelUp Tutorials
+- Kent C. Dodds, Kyle Simpson, Kyle Shevlin, Tyler Clark, Bianca Gandolfo
+- FreeCode camp, Egghead io , LevelUp Tutorials

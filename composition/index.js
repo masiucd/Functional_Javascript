@@ -40,5 +40,3 @@ let composedValue = compose(
   shoutLouder,
   first10OfStr,
 )("Legia Warsazawa CWKS");
-
-console.log(composedValue);

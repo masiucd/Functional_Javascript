@@ -8,8 +8,6 @@ game.characters = [
   { name: "Mia", age: 42, gender: 1 },
 ];
 
-// console.log(game);
-
 function listAllChars(obj) {
   return obj.characters.map(
     (char) =>
