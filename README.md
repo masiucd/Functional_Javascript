@@ -18,8 +18,8 @@ Writing functional programming is a very powerful programing paradigm that I rea
 ## 📝 Table of Contents
 
 - [About](#about)
-- [Usage](#usage)
 - [Tools](#built_using)
+- [Thanks to](#acknowledgement)
 
 ## 🧐 About <a name = "about"></a>
 
@@ -62,10 +62,6 @@ Will run the test inside test folder
   yarn test --watch
 ```
 
-## 🎈 Usage <a name="usage"></a>
-
-Just want to get better in writing functional code and share my knowledge.
-
 **Functional concepts**
 
 - Currying
@@ -76,6 +72,8 @@ Just want to get better in writing functional code and share my knowledge.
 - point free programming
 - reduce function
 - recursion
+- [list-transform](#**list-transform**)
+- [compose](#**compose_pipe**)
 - basic data structures in javascript
 
 ## ⛏️ Tools in project <a name = "built_using"></a>
@@ -83,11 +81,23 @@ Just want to get better in writing functional code and share my knowledge.
 - [JS](https://developer.mozilla.org/en-US/) - Javascript
 - [TS](https://www.typescriptlang.org/) - Typescript
 
+## compose and pipe function <a name = "compose_pipe"></a>
+
+```js
+const compose = (...fns) => (x) => fns.reduceRight((acc, fn) => fn(acc), x);
+
+const pipe = (...fns) => (x) => fns.reduce((acc, fn) => fn(acc), x);
+```
+
+## List transform <a name = "list-transform"></a>
+
 ## ✍️ Authors <a name = "authors"></a>
 
-- [@masiuciszek](https://github.com/masiuciszek) - Idea & Initial work
+- [@masiuciszek](https://github.com/masiuciszek) 😎🥁
 
-## 🎉 Acknowledgements <a name = "acknowledgement"></a>
+## 🎉 Thanks to <a name = "acknowledgement"></a>
 
 - Kent C. Dodds, Kyle Simpson, Kyle Shevlin, Tyler Clark, Bianca Gandolfo
 - FreeCode camp, Egghead io , LevelUp Tutorials
+
+For all the insperation.
