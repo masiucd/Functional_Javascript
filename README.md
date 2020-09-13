@@ -91,6 +91,50 @@ const pipe = (...fns) => (x) => fns.reduce((acc, fn) => fn(acc), x);
 
 ## List transform <a name = "list-transform"></a>
 
+```js
+const game = {
+  suspects: [
+    { name: "Aleks", color: "red" },
+    { name: "Bob", color: "blue" },
+  ],
+};
+
+/**
+ *
+ * @param {Array} list
+ */
+function render(list) {
+  return list.map((item) => {
+    let obj = {
+      name: item.name.toUpperCase(),
+      color: item.color.toUpperCase(),
+    };
+    return obj;
+  });
+}
+
+// console.log(render(game["suspects"]));
+
+function print() {
+  for (let val of game["suspects"]) {
+    console.log(val);
+  }
+}
+
+const print2 = () => {
+  game["suspects"].forEach((val) => console.log(val));
+};
+function findMurderer() {
+  for (let val of game.suspects) {
+    for (let key in val) {
+      if (val[key].toLowerCase() === "bob") {
+        console.log("found the murderer");
+      }
+    }
+  }
+}
+```
+
 ## ✍️ Authors <a name = "authors"></a>
 
 - [@masiuciszek](https://github.com/masiuciszek) 😎🥁
