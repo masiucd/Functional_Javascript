@@ -11,18 +11,15 @@
 
 <p align="center">
 Writing functional programming is a very powerful programing paradigm that I really like and trying to get better at for every day. I think it is a really big trend now a days. Many people see the benefits of writing functional programs that are based on pure functions and to avoid side effects in your programs.
-
-    <br>
-
 </p>
+<br>
+<hr>
 
 ## 📝 Table of Contents
 
 - [About](#about)
-- [Getting Started](#getting_started)
-- [Deployment](#deployment)
 - [Usage](#usage)
-- [Built Using](#built_using)
+- [Tools](#built_using)
 
 ## 🧐 About <a name = "about"></a>
 
@@ -33,10 +30,6 @@ Functional programming is about:
 2. Pure functions - the same input always gives the same output
 
 3. Functions with limited side effects - any changes, or mutations, to the state of the program outside the function are carefully controlled
-
-## 🏁 Getting Started <a name = "getting_started"></a>
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
 
 ### Prerequisites
 
@@ -85,7 +78,7 @@ Just want to get better in writing functional code and share my knowledge.
 - recursion
 - basic data structures in javascript
 
-## ⛏️ Built Using <a name = "built_using"></a>
+## ⛏️ Tools in project <a name = "built_using"></a>
 
 - [JS](https://developer.mozilla.org/en-US/) - Javascript
 - [TS](https://www.typescriptlang.org/) - Typescript
@@ -93,8 +86,6 @@ Just want to get better in writing functional code and share my knowledge.
 ## ✍️ Authors <a name = "authors"></a>
 
 - [@masiuciszek](https://github.com/masiuciszek) - Idea & Initial work
-
-<!-- See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project. -->
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
