@@ -17,9 +17,9 @@ Writing functional programming is a very powerful programing paradigm that I rea
 
 ## 📝 Table of Contents
 
-- [About](#about)
-- [Tools](#built_using)
-- [Thanks to](#acknowledgement)
+* [About](#about)
+* [Tools](#built_using)
+* [Thanks to](#acknowledgement)
 
 ## 🧐 About <a name = "about"></a>
 
@@ -35,7 +35,7 @@ Functional programming is about:
 
 What things you need to install the software and how to install them.
 
-```
+``` 
 Give examples
 ```
 
@@ -43,7 +43,7 @@ Give examples
 
 A step by step series of examples that tell you how to get a development env running.
 
-```sh
+``` sh
   git clone <Project url>
   cd into <Project>
 
@@ -56,7 +56,7 @@ Nothing to install!
 
 Will run the test inside test folder
 
-```bash
+``` bash
   yarn test
   # or
   yarn test --watch
@@ -64,26 +64,26 @@ Will run the test inside test folder
 
 **Functional concepts**
 
-- Currying
-- pure functions
-- partial applications
-- mutable vs immutable
-- function composition
-- point free programming
-- reduce function
-- recursion
-- [list-transform](#**list-transform**)
-- [compose](#**compose_pipe**)
-- basic data structures in javascript
+* Currying
+* pure functions
+* partial applications
+* mutable vs immutable
+* function composition
+* point free programming
+* reduce function
+* recursion
+* [list-transform](#**list-transform**)
+* [compose](#**compose_pipe**)
+* basic data structures in javascript
 
 ## ⛏️ Tools in project <a name = "built_using"></a>
 
-- [JS](https://developer.mozilla.org/en-US/) - Javascript
-- [TS](https://www.typescriptlang.org/) - Typescript
+* [JS](https://developer.mozilla.org/en-US/) - Javascript
+* [TS](https://www.typescriptlang.org/) - Typescript
 
 ## compose and pipe function <a name = "compose_pipe"></a>
 
-```js
+``` js
 const compose = (...fns) => (x) => fns.reduceRight((acc, fn) => fn(acc), x);
 
 const pipe = (...fns) => (x) => fns.reduce((acc, fn) => fn(acc), x);
@@ -91,12 +91,17 @@ const pipe = (...fns) => (x) => fns.reduce((acc, fn) => fn(acc), x);
 
 ## List transform <a name = "list-transform"></a>
 
-```js
+``` js
 const game = {
-  suspects: [
-    { name: "Aleks", color: "red" },
-    { name: "Bob", color: "blue" },
-  ],
+    suspects: [{
+            name: "Aleks",
+            color: "red"
+        },
+        {
+            name: "Bob",
+            color: "blue"
+        },
+    ],
 };
 
 /**
@@ -104,44 +109,45 @@ const game = {
  * @param {Array} list
  */
 function render(list) {
-  return list.map((item) => {
-    let obj = {
-      name: item.name.toUpperCase(),
-      color: item.color.toUpperCase(),
-    };
-    return obj;
-  });
+    return list.map((item) => {
+        let obj = {
+            name: item.name.toUpperCase(),
+            color: item.color.toUpperCase(),
+        };
+        return obj;
+    });
 }
 
 // console.log(render(game["suspects"]));
 
 function print() {
-  for (let val of game["suspects"]) {
-    console.log(val);
-  }
+    for (let val of game["suspects"]) {
+        console.log(val);
+    }
 }
 
 const print2 = () => {
-  game["suspects"].forEach((val) => console.log(val));
+    game["suspects"].forEach((val) => console.log(val));
 };
+
 function findMurderer() {
-  for (let val of game.suspects) {
-    for (let key in val) {
-      if (val[key].toLowerCase() === "bob") {
-        console.log("found the murderer");
-      }
+    for (let val of game.suspects) {
+        for (let key in val) {
+            if (val[key].toLowerCase() === "bob") {
+                console.log("found the murderer");
+            }
+        }
     }
-  }
 }
 ```
 
 ## ✍️ Authors <a name = "authors"></a>
 
-- [@masiuciszek](https://github.com/masiuciszek) 😎🥁
+* [@masiuciszek](https://github.com/masiuciszek) 😎🥁
 
 ## 🎉 Thanks to <a name = "acknowledgement"></a>
 
-- Kent C. Dodds, Kyle Simpson, Kyle Shevlin, Tyler Clark, Bianca Gandolfo
-- FreeCode camp, Egghead io , LevelUp Tutorials
+* Kent C. Dodds, Kyle Simpson, Kyle Shevlin, Tyler Clark, Bianca Gandolfo
+* FreeCode camp, Egghead io , LevelUp Tutorials
 
 For all the insperation.

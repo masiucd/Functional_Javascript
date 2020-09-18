@@ -5,6 +5,13 @@ const game = {
   ],
 };
 
+const transform = (game) =>
+  Object.entries(game.suspects).forEach((val, i) => {
+    console.log(val["1"]);
+  });
+
+console.log(transform(game));
+
 /**
  *
  * @param {Array} list
@@ -50,3 +57,10 @@ function bar(list) {
     }
   }
 }
+
+function foo([a, b, ...rest] = []) {
+  return Math.floor([...rest].reduce((a, b) => (a * b) / 2.5, 1));
+}
+
+let nums = [5, 6, 7, 8, 9];
+// console.log(foo([1, 2, 3, 4, ...nums]));
