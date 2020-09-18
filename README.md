@@ -72,6 +72,7 @@ Will run the test inside test folder
 * point free programming
 * reduce function
 * recursion
+* [higher order functions](#hof)
 * [list-transform](#**list-transform**)
 * [compose](#**compose_pipe**)
 * basic data structures in javascript
@@ -139,6 +140,23 @@ function findMurderer() {
         }
     }
 }
+```
+
+## Higher order functions <a name = "hof"></a>
+
+``` ts
+type Fn1 = (x: number) => number;
+
+type FunctionsType = Fn1;
+
+export const addByOne = (x: number) => x + 1;
+export const pow = (x: number) => x * x;
+
+const doSomeMathPlease = (x: number, fn: FunctionsType) => fn(x);
+
+let giveMeSix = doSomeMathPlease(5, addByOne); // 6
+let giveMe25 = doSomeMathPlease(5, pow); // 25
+
 ```
 
 ## ✍️ Authors <a name = "authors"></a>
