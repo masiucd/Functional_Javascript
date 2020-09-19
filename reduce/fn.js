@@ -6,7 +6,6 @@
  */
 const reducer = (list, fn, initial = 0) => {
   let memo = initial;
-
   for (let i = 0; i < list.length; i++) {
     memo = fn(list[i], memo);
   }
