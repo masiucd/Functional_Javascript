@@ -64,23 +64,30 @@ Will run the test inside test folder
 
 **Functional concepts**
 
-* Currying
-* pure functions
-* partial applications
-* mutable vs immutable
-* function composition
-* point free programming
-* reduce function
-* recursion
-* [higher order functions](#hof)
-* [list-transform](#**list-transform**)
+* [Currying](#curry)
+* [pure functions](#pf)
+* [partial applications](#pa)
+* [mutable vs immutable](#mi)
+* [function composition](#fc)
+* [point free programming](#pfp)
+* [reduce function](#rf)
+* [recursion](#rcc)
 * [compose](#**compose_pipe**)
-* basic data structures in javascript
+* [list-transform](#**list-transform**)
+* [function shapes](#shapes)
+* [higher order functions](#hof)
+* [basic data structures in javascript](#bdij)
 
 ## ⛏️ Tools in project <a name = "built_using"></a>
 
 * [JS](https://developer.mozilla.org/en-US/) - Javascript
 * [TS](https://www.typescriptlang.org/) - Typescript
+
+## curried functions <a name = "curry"></a>
+
+## pure functions <a name = "pf"></a>
+
+## partial application <a name = "ps"></a>
 
 ## compose and pipe function <a name = "compose_pipe"></a>
 

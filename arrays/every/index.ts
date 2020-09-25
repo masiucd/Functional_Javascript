@@ -11,34 +11,32 @@ interface People {
 
 const fields: Fields[] = [
   {
-    field: 'email',
-    value: 'masiuboy@example.com',
+    field: "email",
+    value: "masiuboy@example.com",
     errors: [],
   },
   {
-    field: 'email',
-    value: '',
-    errors: ['Bigg bugg!!!!'],
+    field: "email",
+    value: "",
+    errors: ["Bigg bugg!!!!"],
   },
 ];
 
-const isValid = fields.every(field => field.errors.length === 0);
+const isValid = fields.every((field) => field.errors.length === 0);
 
 const people = [
   {
-    name: 'Aleks',
+    name: "Aleks",
     age: 22,
   },
   {
-    name: 'Linda',
+    name: "Linda",
     age: 43,
   },
   {
-    name: 'Kim',
+    name: "Kim",
     age: 12,
   },
 ];
 
-const canAllPeopleDrive = people.every(p => p.age > 18);
-
-console.log(canAllPeopleDrive);
+const canAllPeopleDrive = people.every((p) => p.age > 18);
