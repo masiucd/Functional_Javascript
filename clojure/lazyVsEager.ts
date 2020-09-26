@@ -18,3 +18,7 @@ const A2 = eagerRepeater(10, "A");
 
 A2(); // AAAAAAAAAA
 A2(); // AAAAAAAAAA
+
+const toBinary = (n: number): number => Number((n >>> 0).toString(2));
+
+console.log(toBinary(256));

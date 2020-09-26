@@ -1,7 +1,7 @@
 <p align="center" <img width=200px height=200px src="https://cdn0.iconfinder.com/data/icons/glyphpack/60/function-128.png" alt="Project logo">
 </p>
 
-<h3 align="center">Functional programming, JavaScript</h3>
+<h3 align="center">Functional λ💎 programming, JavaScript🄹🅂</h3>
 
 <div align="center">
 
@@ -72,7 +72,7 @@ Will run the test inside test folder
 - [point free programming](#pfp)
 - [reduce function](#rf)
 - [recursion](#rcc)
-- [compose](#**compose_pipe**)
+- [compose](#compose)
 - [list-transform](#**list-transform**)
 - [function shapes](#shapes)
 - [higher order functions](#hof)
@@ -87,9 +87,14 @@ Will run the test inside test folder
 
 ## pure functions <a name = "pf"></a>
 
+So what is a pure function?
+We always expect to take some input and return some output.
+I can take the ruturn value and replace the function call with the return.
+You receive the same output for every same input, for every time you call the function.
+
 ## partial application <a name = "ps"></a>
 
-## compose and pipe function <a name = "compose_pipe"></a>
+## compose and pipe function <a name = "compose"></a>
 
 ```js
 const compose = (...fns) => (x) => fns.reduceRight((acc, fn) => fn(acc), x);
