@@ -35,4 +35,4 @@ const isValidLength = (fn: Function) => (compareLength: number) => <T>(
   list: Array<T>,
 ) => fn(list) > compareLength;
 
-console.log(isValidLength(getArrLength)(2)(flights));
+// console.log(isValidLength(getArrLength)(2)(flights));

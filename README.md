@@ -1,7 +1,7 @@
 <p align="center" <img width=200px height=200px src="https://cdn0.iconfinder.com/data/icons/glyphpack/60/function-128.png" alt="Project logo">
 </p>
 
-<h3 align="center">functional programming , Javascript</h3>
+<h3 align="center">Functional programming, JavaScript</h3>
 
 <div align="center">
 
@@ -10,16 +10,16 @@
 ---
 
 <p align="center">
-Writing functional programming is a very powerful programing paradigm that I really like and trying to get better at for every day. I think it is a really big trend now a days. Many people see the benefits of writing functional programs that are based on pure functions and to avoid side effects in your programs.
+Writing functional programming is a very powerful programming paradigm that I really like and trying to get better at for every day. I think it is a massive trend nowadays. Many people see the benefits of writing functional programs that are based on pure functions and to avoid side effects in your programs.
 </p>
 <br>
 <hr>
 
 ## 📝 Table of Contents
 
-* [About](#about)
-* [Tools](#built_using)
-* [Thanks to](#acknowledgement)
+- [About](#about)
+- [Tools](#built_using)
+- [Thanks to](#acknowledgement)
 
 ## 🧐 About <a name = "about"></a>
 
@@ -35,7 +35,7 @@ Functional programming is about:
 
 What things you need to install the software and how to install them.
 
-``` 
+```
 Give examples
 ```
 
@@ -43,20 +43,20 @@ Give examples
 
 A step by step series of examples that tell you how to get a development env running.
 
-``` sh
+```sh
   git clone <Project url>
   cd into <Project>
 
 ```
 
-And Have fun!
+And have fun!
 Nothing to install!
 
 ## 🔧 Running the tests <a name = "tests"></a>
 
 Will run the test inside test folder
 
-``` bash
+```bash
   yarn test
   # or
   yarn test --watch
@@ -64,24 +64,24 @@ Will run the test inside test folder
 
 **Functional concepts**
 
-* [Currying](#curry)
-* [pure functions](#pf)
-* [partial applications](#pa)
-* [mutable vs immutable](#mi)
-* [function composition](#fc)
-* [point free programming](#pfp)
-* [reduce function](#rf)
-* [recursion](#rcc)
-* [compose](#**compose_pipe**)
-* [list-transform](#**list-transform**)
-* [function shapes](#shapes)
-* [higher order functions](#hof)
-* [basic data structures in javascript](#bdij)
+- [Currying](#curry)
+- [pure functions](#pf)
+- [partial applications](#pa)
+- [mutable vs immutable](#mi)
+- [function composition](#fc)
+- [point free programming](#pfp)
+- [reduce function](#rf)
+- [recursion](#rcc)
+- [compose](#**compose_pipe**)
+- [list-transform](#**list-transform**)
+- [function shapes](#shapes)
+- [higher order functions](#hof)
+- [basic data structures in JavaScript](#bdij)
 
 ## ⛏️ Tools in project <a name = "built_using"></a>
 
-* [JS](https://developer.mozilla.org/en-US/) - Javascript
-* [TS](https://www.typescriptlang.org/) - Typescript
+- [JS](https://developer.mozilla.org/en-US/) - JavaScript
+- [TS](https://www.typescriptlang.org/) - Typescript
 
 ## curried functions <a name = "curry"></a>
 
@@ -91,7 +91,7 @@ Will run the test inside test folder
 
 ## compose and pipe function <a name = "compose_pipe"></a>
 
-``` js
+```js
 const compose = (...fns) => (x) => fns.reduceRight((acc, fn) => fn(acc), x);
 
 const pipe = (...fns) => (x) => fns.reduce((acc, fn) => fn(acc), x);
@@ -99,17 +99,18 @@ const pipe = (...fns) => (x) => fns.reduce((acc, fn) => fn(acc), x);
 
 ## List transform <a name = "list-transform"></a>
 
-``` js
+```js
 const game = {
-    suspects: [{
-            name: "Aleks",
-            color: "red"
-        },
-        {
-            name: "Bob",
-            color: "blue"
-        },
-    ],
+  suspects: [
+    {
+      name: "Aleks",
+      color: "red",
+    },
+    {
+      name: "Bob",
+      color: "blue",
+    },
+  ],
 };
 
 /**
@@ -117,41 +118,41 @@ const game = {
  * @param {Array} list
  */
 function render(list) {
-    return list.map((item) => {
-        let obj = {
-            name: item.name.toUpperCase(),
-            color: item.color.toUpperCase(),
-        };
-        return obj;
-    });
+  return list.map((item) => {
+    let obj = {
+      name: item.name.toUpperCase(),
+      color: item.color.toUpperCase(),
+    };
+    return obj;
+  });
 }
 
 // console.log(render(game["suspects"]));
 
 function print() {
-    for (let val of game["suspects"]) {
-        console.log(val);
-    }
+  for (let val of game["suspects"]) {
+    console.log(val);
+  }
 }
 
 const print2 = () => {
-    game["suspects"].forEach((val) => console.log(val));
+  game["suspects"].forEach((val) => console.log(val));
 };
 
 function findMurderer() {
-    for (let val of game.suspects) {
-        for (let key in val) {
-            if (val[key].toLowerCase() === "bob") {
-                console.log("found the murderer");
-            }
-        }
+  for (let val of game.suspects) {
+    for (let key in val) {
+      if (val[key].toLowerCase() === "bob") {
+        console.log("found the murderer");
+      }
     }
+  }
 }
 ```
 
 ## Higher order functions <a name = "hof"></a>
 
-``` ts
+```ts
 type Fn1 = (x: number) => number;
 
 type FunctionsType = Fn1;
@@ -163,16 +164,13 @@ const doSomeMathPlease = (x: number, fn: FunctionsType) => fn(x);
 
 let giveMeSix = doSomeMathPlease(5, addByOne); // 6
 let giveMe25 = doSomeMathPlease(5, pow); // 25
-
 ```
 
 ## ✍️ Authors <a name = "authors"></a>
 
-* [@masiuciszek](https://github.com/masiuciszek) 😎🥁
-
 ## 🎉 Thanks to <a name = "acknowledgement"></a>
 
-* Kent C. Dodds, Kyle Simpson, Kyle Shevlin, Tyler Clark, Bianca Gandolfo
-* FreeCode camp, Egghead io , LevelUp Tutorials
+- Kent C. Dodds, Kyle Simpson, Kyle Shevlin, Tyler Clark, Bianca Gandolfo
+- FreeCode camp, Egghead io , LevelUp Tutorials
 
-For all the insperation.
+For all the inspiration.
