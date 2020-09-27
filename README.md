@@ -173,6 +173,8 @@ let giveMe25 = doSomeMathPlease(5, pow); // 25
 
 ## ✍️ Authors <a name = "authors"></a>
 
+Me [Marcell Ciszek Druzynski](#)
+
 ## 🎉 Thanks to <a name = "acknowledgement"></a>
 
 - Kent C. Dodds, Kyle Simpson, Kyle Shevlin, Tyler Clark, Bianca Gandolfo
