@@ -176,9 +176,11 @@ function findMurderer() {
 ## Immutable <a name = "imdb"></a>
 
 what is read only ?
-A data structure that can be read but not written to. A important concept of Immutability.
+A data structure that can be read but not written to, that never has to be mutated. A important concept of Immutability.
 
 ```js
+// How to make a read only Data structure in Js with Object.freeze.
+
 const dog = {
   name: "doggie",
   legs: 4,
@@ -195,6 +197,22 @@ immutableDog.name = "Logan";
  * dog = { name: 'doggie', legs: 4, breed: 'pug' }
  * immutableDog = { name: 'doggie', legs: 4, breed: 'pug' }
  */
+
+const foo = {
+  a: "hello",
+  b: 45,
+  obj: {
+    h: 10,
+  },
+};
+
+const fooI = Object.freeze(foo);
+
+foo.a = "bye";
+foo.obj.h = 20; // will be 20
+
+// console.log(foo);
+// object.freeze will not make a deep freeze on the object
 ```
 
 ```ts

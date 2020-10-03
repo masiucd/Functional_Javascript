@@ -16,3 +16,19 @@ immutableDog.name = "Logan";
  * dog = { name: 'doggie', legs: 4, breed: 'pug' }
  * immutableDog = { name: 'doggie', legs: 4, breed: 'pug' }
  */
+
+const foo = {
+  a: "hello",
+  b: 45,
+  obj: {
+    h: 10,
+  },
+};
+
+const fooI = Object.freeze(foo);
+
+foo.a = "bye";
+foo.obj.h = 20; // will be 20
+
+// console.log(foo);
+// object.freeze will not make a deep freeze on the object
