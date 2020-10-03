@@ -32,3 +32,25 @@ foo.obj.h = 20; // will be 20
 
 // console.log(foo);
 // object.freeze will not make a deep freeze on the object
+
+const order = {
+  status: "unComplete",
+  paymentMethod: "card",
+  price: 200,
+};
+
+const sendToDb = (order) => {
+  return order;
+};
+
+function processOrder(order) {
+  const copyOrder = { ...order };
+  if ("status" in order) {
+    copyOrder.status = "complete";
+    sendToDb(order);
+  } else {
+    return;
+  }
+}
+
+processOrder(Object.freeze(order));
