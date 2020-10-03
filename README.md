@@ -217,8 +217,6 @@ foo.obj.h = 20; // will be 20
 // object.freeze will not make a deep freeze on the object
 ```
 
-> > > > > > > 6295bda71037dcc04c1096f141f3ca2c8d898bb6
-
 ```ts
 type Fn1 = (x: number) => number;
 
