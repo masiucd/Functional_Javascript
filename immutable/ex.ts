@@ -1,8 +1,8 @@
-const lotteryNum = () => {
+export const lotteryNum = () => {
   return (Math.round(Math.random() * 100) % 58) + 1;
 };
 
-const recordNumber = (num: number, list: Array<number>) => {
+export const recordNumber = (num: number, list: Array<number>) => {
   if (!list.includes(num)) {
     list = [...list, num];
     list.push(num);
@@ -18,4 +18,4 @@ while (luckyLotteryNumbers.length < NUM_COUNT) {
   luckyLotteryNumbers = recordNumber(lotteryNum(), luckyLotteryNumbers);
 }
 
-console.log(luckyLotteryNumbers);
+// console.log(luckyLotteryNumbers);
