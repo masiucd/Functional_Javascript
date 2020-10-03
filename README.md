@@ -17,9 +17,9 @@ Writing functional programming is a very powerful programming paradigm that I re
 
 ## 📝 Table of Contents
 
-* [About](#about)
-* [Tools](#built_using)
-* [Thanks to](#acknowledgement)
+- [About](#about)
+- [Tools](#built_using)
+- [Thanks to](#acknowledgement)
 
 ## 🧐 About <a name = "about"></a>
 
@@ -35,7 +35,7 @@ Functional programming is about:
 
 What things you need to install the software and how to install them.
 
-``` 
+```
 Give examples
 ```
 
@@ -43,7 +43,7 @@ Give examples
 
 A step by step series of examples that tell you how to get a development env running.
 
-``` sh
+```sh
   git clone <Project url>
   cd into <Project>
 
@@ -56,7 +56,7 @@ Nothing to install!
 
 Will run the test inside test folder
 
-``` bash
+```bash
   yarn test
   # or
   yarn test --watch
@@ -64,24 +64,24 @@ Will run the test inside test folder
 
 **Functional concepts**
 
-* [Currying](#curry)
-* [pure functions](#pf)
-* [partial applications](#pa)
-* [mutable vs immutable](#mi)
-* [function composition](#fc)
-* [point free programming](#pfp)
-* [reduce function](#rf)
-* [recursion](#rcc)
-* [compose](#compose)
-* [list-transform](#**list-transform**)
-* [function shapes](#shapes)
-* [higher order functions](#hof)
-* [basic data structures in JavaScript](#bdij)
+- [Currying](#curry)
+- [pure functions](#pf)
+- [partial applications](#pa)
+- [mutable vs immutable](#mi)
+- [function composition](#fc)
+- [point free programming](#pfp)
+- [reduce function](#rf)
+- [recursion](#rcc)
+- [compose](#compose)
+- [list-transform](#**list-transform**)
+- [function shapes](#shapes)
+- [higher order functions](#hof)
+- [basic data structures in JavaScript](#bdij)
 
 ## ⛏️ Tools in project <a name = "built_using"></a>
 
-* [JS](https://developer.mozilla.org/en-US/) - JavaScript
-* [TS](https://www.typescriptlang.org/) - Typescript
+- [JS](https://developer.mozilla.org/en-US/) - JavaScript
+- [TS](https://www.typescriptlang.org/) - Typescript
 
 ## curried functions <a name = "curry"></a>
 
@@ -96,11 +96,11 @@ You receive the same output for every same input, for every time you call the fu
 
 ## compose and pipe function <a name = "compose"></a>
 
-See compose as a effective machine that compose on value into another value.
-Like a candy factory , first the candy is mixed with the ingredients (*fn1*), 
-then it gets its shape *(fn2)* , then it get its color *(fn3)* at least it get its taste *(fn3)*. **Function composition** 🚀λ🤩
+See compose as a effective machine that compose one value into another value.
+Like a candy factory , first the candy is mixed with the ingredients (_fn1_),
+then it gets its shape _(fn2)_ , then it get its color _(fn3)_ at least it get its taste _(fn3)_. **Function composition** 🚀λ🤩
 
-``` js
+```js
 const compose = (...fns) => (x) => fns.reduceRight((acc, fn) => fn(acc), x);
 
 const pipe = (...fns) => (x) => fns.reduce((acc, fn) => fn(acc), x);
@@ -108,29 +108,29 @@ const pipe = (...fns) => (x) => fns.reduce((acc, fn) => fn(acc), x);
 
 with **Typescript**
 
-``` ts
+```ts
 const compoese = (...fns: FunctionTypes[]) => <T>(val: T) =>
   fns.reduce(
     (currentValue: T, currentFunction: Function) =>
       currentFunction(currentValue),
     val,
   );
-
 ```
 
 ## List transform <a name = "list-transform"></a>
 
-``` js
+```js
 const game = {
-    suspects: [{
-            name: "Aleks",
-            color: "red",
-        },
-        {
-            name: "Bob",
-            color: "blue",
-        },
-    ],
+  suspects: [
+    {
+      name: "Aleks",
+      color: "red",
+    },
+    {
+      name: "Bob",
+      color: "blue",
+    },
+  ],
 };
 
 /**
@@ -138,41 +138,41 @@ const game = {
  * @param {Array} list
  */
 function render(list) {
-    return list.map((item) => {
-        let obj = {
-            name: item.name.toUpperCase(),
-            color: item.color.toUpperCase(),
-        };
-        return obj;
-    });
+  return list.map((item) => {
+    let obj = {
+      name: item.name.toUpperCase(),
+      color: item.color.toUpperCase(),
+    };
+    return obj;
+  });
 }
 
 // console.log(render(game["suspects"]));
 
 function print() {
-    for (let val of game["suspects"]) {
-        console.log(val);
-    }
+  for (let val of game["suspects"]) {
+    console.log(val);
+  }
 }
 
 const print2 = () => {
-    game["suspects"].forEach((val) => console.log(val));
+  game["suspects"].forEach((val) => console.log(val));
 };
 
 function findMurderer() {
-    for (let val of game.suspects) {
-        for (let key in val) {
-            if (val[key].toLowerCase() === "bob") {
-                console.log("found the murderer");
-            }
-        }
+  for (let val of game.suspects) {
+    for (let key in val) {
+      if (val[key].toLowerCase() === "bob") {
+        console.log("found the murderer");
+      }
     }
+  }
 }
 ```
 
 ## Higher order functions <a name = "hof"></a>
 
-``` ts
+```ts
 type Fn1 = (x: number) => number;
 
 type FunctionsType = Fn1;
@@ -192,7 +192,7 @@ Me [Marcell Ciszek Druzynski](#)
 
 ## 🎉 Thanks to <a name = "acknowledgement"></a>
 
-* Kent C. Dodds, Kyle Simpson, Kyle Shevlin, Tyler Clark, Bianca Gandolfo
-* FreeCode camp, Egghead io , LevelUp Tutorials
+- Kent C. Dodds, Kyle Simpson, Kyle Shevlin, Tyler Clark, Bianca Gandolfo
+- FreeCode camp, Egghead io , LevelUp Tutorials
 
 For all the inspiration.
