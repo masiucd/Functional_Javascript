@@ -97,7 +97,7 @@ You receive the same output for every same input, for every time you call the fu
 
 ## compose and pipe function <a name = "compose"></a>
 
-See compose as a effective machine that compose on value into another value.
+See compose as a effective machine that compose one value into another value.
 Like a candy factory , first the candy is mixed with the ingredients (_fn1_),
 then it gets its shape _(fn2)_ , then it get its color _(fn3)_ at least it get its taste _(fn3)_. **Function composition** 🚀λ🤩
 
@@ -114,7 +114,7 @@ const compoese = (...fns: FunctionTypes[]) => <T>(val: T) =>
   fns.reduce(
     (currentValue: T, currentFunction: Function) =>
       currentFunction(currentValue),
-    val
+    val,
   );
 ```
 
@@ -172,6 +172,8 @@ function findMurderer() {
 ```
 
 ## Higher order functions <a name = "hof"></a>
+
+# <<<<<<< HEAD
 
 ## Immutable <a name = "imdb"></a>
 
