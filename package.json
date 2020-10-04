@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "ramda": "^0.27.1"
   },
   "repository": "https://github.com/masiuciszek/Functional_Javascript.git",
   "devDependencies": {
