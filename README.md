@@ -114,7 +114,7 @@ const compoese = (...fns: FunctionTypes[]) => <T>(val: T) =>
   fns.reduce(
     (currentValue: T, currentFunction: Function) =>
       currentFunction(currentValue),
-    val,
+    val
   );
 ```
 
@@ -173,8 +173,6 @@ function findMurderer() {
 
 ## Higher order functions <a name = "hof"></a>
 
-# <<<<<<< HEAD
-
 ## Immutable <a name = "imdb"></a>
 
 what is read only ?
@@ -229,6 +227,31 @@ const doSomeMathPlease = (x: number, fn: FunctionsType) => fn(x);
 
 let giveMeSix = doSomeMathPlease(5, addByOne); // 6
 let giveMe25 = doSomeMathPlease(5, pow); // 25
+```
+
+Trampoline , how to prevent a stack over flow when working with recursion.
+What we want is to move between 0 and 1 , this what the trampoline technique actually does.
+
+```js
+function trampoline(fn) {
+  return (...args) => {
+    let result = fn(...args);
+    while (typeof result === "function") {
+      result = result();
+    }
+    return result;
+  };
+}
+
+const isVowel = (char) => ["a", "e", "i", "o", "u"].includes(char);
+
+let countVowels = trampoline((count, str) => {
+  count += isVowel(str[0]) ? 1 : 0;
+  if (str.length <= 1) return count;
+  return () => countVowels(count, str.slice(1));
+});
+
+countVowels = R.curry(2, countVowels)(0);
 ```
 
 ## ✍️ Authors <a name = "authors"></a>
