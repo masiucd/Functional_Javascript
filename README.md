@@ -84,7 +84,7 @@ const compoese = (...fns: FunctionTypes[]) => <T>(val: T) =>
   fns.reduce(
     (currentValue: T, currentFunction: Function) =>
       currentFunction(currentValue),
-    val,
+    val
   );
 ```
 
@@ -142,8 +142,6 @@ function findMurderer() {
 
 ## Higher order functions <a name = "hof"></a>
 
-# <<<<<<< HEAD
-
 ## Immutable <a name = "imdb"></a>
 
 what is read only ?
@@ -200,12 +198,39 @@ let giveMeSix = doSomeMathPlease(5, addByOne); // 6
 let giveMe25 = doSomeMathPlease(5, pow); // 25
 ```
 
+<<<<<<< HEAD
 ## λ Transduction <a name = "transduction"></a>
 
 Transduction is a way how we can transform our function in a shape the we want in a mathimtical way. For example when we want to compose our functions.
 Declarative way not imperative.
  >> Reshapes our functions
  >> compositions of reducers
+=======
+Trampoline , how to prevent a stack over flow when working with recursion.
+What we want is to move between 0 and 1 , this what the trampoline technique actually does.
+
+```js
+function trampoline(fn) {
+  return (...args) => {
+    let result = fn(...args);
+    while (typeof result === "function") {
+      result = result();
+    }
+    return result;
+  };
+}
+
+const isVowel = (char) => ["a", "e", "i", "o", "u"].includes(char);
+
+let countVowels = trampoline((count, str) => {
+  count += isVowel(str[0]) ? 1 : 0;
+  if (str.length <= 1) return count;
+  return () => countVowels(count, str.slice(1));
+});
+
+countVowels = R.curry(2, countVowels)(0);
+```
+>>>>>>> 19851edae8c6fd65012cad8297ccea3cf5209171
 
 ## ✍️ Authors <a name = "authors"></a>
 
