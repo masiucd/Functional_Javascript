@@ -17,9 +17,9 @@ Writing functional programming is a very powerful programming paradigm that I re
 
 ## 📝 Table of Contents
 
-- [About](#about)
-- [Tools](#built_using)
-- [Thanks to](#acknowledgement)
+* [About](#about)
+* [Tools](#built_using)
+* [Thanks to](#acknowledgement)
 
 ## 🧐 About <a name = "about"></a>
 
@@ -31,58 +31,28 @@ Functional programming is about:
 
 3. Functions with limited side effects - any changes, or mutations, to the state of the program outside the function are carefully controlled
 
-### Prerequisites
-
-What things you need to install the software and how to install them.
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running.
-
-```sh
-  git clone <Project url>
-  cd into <Project>
-
-```
-
-And have fun!
-Nothing to install!
-
-## 🔧 Running the tests <a name = "tests"></a>
-
-Will run the test inside test folder
-
-```bash
-  yarn test
-  # or
-  yarn test --watch
-```
-
 **Functional concepts**
 
-- [Currying](#curry)
-- [pure functions](#pf)
-- [partial applications](#pa)
-- [mutable vs immutable](#mi)
-- [function composition](#fc)
-- [point free programming](#pfp)
-- [reduce function](#rf)
-- [recursion](#rcc)
-- [compose](#compose)
-- [list-transform](#**list-transform**)
-- [function shapes](#shapes)
-- [higher order functions](#hof)
-- [Immutable](#imdb)
-- [basic data structures in JavaScript](#bdij)
+* [Currying](#curry)
+* [pure functions](#pf)
+* [partial applications](#pa)
+* [mutable vs immutable](#mi)
+* [function composition](#fc)
+* [point free programming](#pfp)
+* [reduce function](#rf)
+* [recursion](#rcc)
+* [compose](#compose)
+* [list-transform](#**list-transform**)
+* [function shapes](#shapes)
+* [higher order functions](#hof)
+* [Immutable](#imdb)
+* [basic data structures in JavaScript](#bdij)
+* [Transduction](#transduction)
 
 ## ⛏️ Tools in project <a name = "built_using"></a>
 
-- [JS](https://developer.mozilla.org/en-US/) - JavaScript
-- [TS](https://www.typescriptlang.org/) - Typescript
+* [JS](https://developer.mozilla.org/en-US/) - JavaScript
+* [TS](https://www.typescriptlang.org/) - Typescript
 
 ## curried functions <a name = "curry"></a>
 
@@ -98,10 +68,10 @@ You receive the same output for every same input, for every time you call the fu
 ## compose and pipe function <a name = "compose"></a>
 
 See compose as a effective machine that compose one value into another value.
-Like a candy factory , first the candy is mixed with the ingredients (_fn1_),
+Like a candy factory , first the candy is mixed with the ingredients (_fn1_), 
 then it gets its shape _(fn2)_ , then it get its color _(fn3)_ at least it get its taste _(fn3)_. **Function composition** 🚀λ🤩
 
-```js
+``` js
 const compose = (...fns) => (x) => fns.reduceRight((acc, fn) => fn(acc), x);
 
 const pipe = (...fns) => (x) => fns.reduce((acc, fn) => fn(acc), x);
@@ -109,7 +79,7 @@ const pipe = (...fns) => (x) => fns.reduce((acc, fn) => fn(acc), x);
 
 with **Typescript**
 
-```ts
+``` ts
 const compoese = (...fns: FunctionTypes[]) => <T>(val: T) =>
   fns.reduce(
     (currentValue: T, currentFunction: Function) =>
@@ -120,18 +90,17 @@ const compoese = (...fns: FunctionTypes[]) => <T>(val: T) =>
 
 ## List transform <a name = "list-transform"></a>
 
-```js
+``` js
 const game = {
-  suspects: [
-    {
-      name: "Aleks",
-      color: "red",
-    },
-    {
-      name: "Bob",
-      color: "blue",
-    },
-  ],
+    suspects: [{
+            name: "Aleks",
+            color: "red",
+        },
+        {
+            name: "Bob",
+            color: "blue",
+        },
+    ],
 };
 
 /**
@@ -139,35 +108,35 @@ const game = {
  * @param {Array} list
  */
 function render(list) {
-  return list.map((item) => {
-    let obj = {
-      name: item.name.toUpperCase(),
-      color: item.color.toUpperCase(),
-    };
-    return obj;
-  });
+    return list.map((item) => {
+        let obj = {
+            name: item.name.toUpperCase(),
+            color: item.color.toUpperCase(),
+        };
+        return obj;
+    });
 }
 
 // console.log(render(game["suspects"]));
 
 function print() {
-  for (let val of game["suspects"]) {
-    console.log(val);
-  }
+    for (let val of game["suspects"]) {
+        console.log(val);
+    }
 }
 
 const print2 = () => {
-  game["suspects"].forEach((val) => console.log(val));
+    game["suspects"].forEach((val) => console.log(val));
 };
 
 function findMurderer() {
-  for (let val of game.suspects) {
-    for (let key in val) {
-      if (val[key].toLowerCase() === "bob") {
-        console.log("found the murderer");
-      }
+    for (let val of game.suspects) {
+        for (let key in val) {
+            if (val[key].toLowerCase() === "bob") {
+                console.log("found the murderer");
+            }
+        }
     }
-  }
 }
 ```
 
@@ -180,13 +149,13 @@ function findMurderer() {
 what is read only ?
 A data structure that can be read but not written to, that never has to be mutated. A important concept of Immutability.
 
-```js
+``` js
 // How to make a read only Data structure in Js with Object.freeze.
 
 const dog = {
-  name: "doggie",
-  legs: 4,
-  breed: "pug",
+    name: "doggie",
+    legs: 4,
+    breed: "pug",
 };
 
 const immutableDog = Object.freeze(dog);
@@ -201,11 +170,11 @@ immutableDog.name = "Logan";
  */
 
 const foo = {
-  a: "hello",
-  b: 45,
-  obj: {
-    h: 10,
-  },
+    a: "hello",
+    b: 45,
+    obj: {
+        h: 10,
+    },
 };
 
 const fooI = Object.freeze(foo);
@@ -217,7 +186,7 @@ foo.obj.h = 20; // will be 20
 // object.freeze will not make a deep freeze on the object
 ```
 
-```ts
+``` ts
 type Fn1 = (x: number) => number;
 
 type FunctionsType = Fn1;
@@ -231,13 +200,20 @@ let giveMeSix = doSomeMathPlease(5, addByOne); // 6
 let giveMe25 = doSomeMathPlease(5, pow); // 25
 ```
 
+## λ Transduction <a name = "transduction"></a>
+
+Transduction is a way how we can transform our function in a shape the we want in a mathimtical way. For example when we want to compose our functions.
+Declarative way not imperative.
+ >> Reshapes our functions
+ >> compositions of reducers
+
 ## ✍️ Authors <a name = "authors"></a>
 
 Me [Marcell Ciszek Druzynski](#)
 
 ## 🎉 Thanks to <a name = "acknowledgement"></a>
 
-- Kent C. Dodds, Kyle Simpson, Kyle Shevlin, Tyler Clark, Bianca Gandolfo
-- FreeCode camp, Egghead io , LevelUp Tutorials
+* Kent C. Dodds, Kyle Simpson, Kyle Shevlin, Tyler Clark, Bianca Gandolfo
+* FreeCode camp, Egghead io , LevelUp Tutorials
 
 For all the inspiration.

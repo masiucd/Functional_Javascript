@@ -75,4 +75,3 @@ const nums = [
 const filterNumber = nums.reduce((prev, current) => {
   return !prev.includes(current) ? [...prev, current] : prev
 }, [])
-console.log(filterNumber)
