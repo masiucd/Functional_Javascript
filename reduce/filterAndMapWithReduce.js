@@ -37,14 +37,14 @@ const mappedList2 = data.reduce((acc, val) => {
 // mappedListWithReduce: 0.03ms
 
 const fruits = ["apple", "kiwi", "banana", "berries"]
-const filterWithReduce = fruits.reduce((basket, fruit) => {
+const filterWithAReducer = fruits.reduce((basket, fruit) => {
   if (fruit.charAt(0) === "b") {
     basket.push(fruit)
   }
   return basket
 }, [])
 
-// console.log(filterWithReduce);
+// console.log(filterWithAReducer);
 
 const nums = [
   1,

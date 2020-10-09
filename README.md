@@ -17,9 +17,9 @@ Writing functional programming is a very powerful programming paradigm that I re
 
 ## 📝 Table of Contents
 
-* [About](#about)
-* [Tools](#built_using)
-* [Thanks to](#acknowledgement)
+- [About](#about)
+- [Tools](#built_using)
+- [Thanks to](#acknowledgement)
 
 ## 🧐 About <a name = "about"></a>
 
@@ -33,26 +33,24 @@ Functional programming is about:
 
 **Functional concepts**
 
-* [Currying](#curry)
-* [pure functions](#pf)
-* [partial applications](#pa)
-* [mutable vs immutable](#mi)
-* [function composition](#fc)
-* [point free programming](#pfp)
-* [reduce function](#rf)
-* [recursion](#rcc)
-* [compose](#compose)
-* [list-transform](#**list-transform**)
-* [function shapes](#shapes)
-* [higher order functions](#hof)
-* [Immutable](#imdb)
-* [basic data structures in JavaScript](#bdij)
-* [Transduction](#transduction)
+- [📝 Table of Contents](#-table-of-contents)
+- [🧐 About <a name = "about"></a>](#-about-)
+- [⛏️ Tools in project <a name = "built_using"></a>](#️-tools-in-project-)
+- [curried functions <a name = "curry"></a>](#curried-functions-)
+- [pure functions <a name = "pf"></a>](#pure-functions-)
+- [partial application <a name = "ps"></a>](#partial-application-)
+- [compose and pipe function <a name = "compose"></a>](#compose-and-pipe-function-)
+- [List transform <a name = "list-transform"></a>](#list-transform-)
+- [Higher order functions <a name = "hof"></a>](#higher-order-functions-)
+- [Immutable <a name = "imdb"></a>](#immutable-)
+- [Transduction <a name = "transduction"></a>](#transduction-)
+- [✍️ Authors <a name = "authors"></a>](#️-authors-)
+- [🎉 Thanks to <a name = "acknowledgement"></a>](#-thanks-to-)
 
 ## ⛏️ Tools in project <a name = "built_using"></a>
 
-* [JS](https://developer.mozilla.org/en-US/) - JavaScript
-* [TS](https://www.typescriptlang.org/) - Typescript
+- [JS](https://developer.mozilla.org/en-US/) - JavaScript
+- [TS](https://www.typescriptlang.org/) - Typescript
 
 ## curried functions <a name = "curry"></a>
 
@@ -68,75 +66,76 @@ You receive the same output for every same input, for every time you call the fu
 ## compose and pipe function <a name = "compose"></a>
 
 See compose as a effective machine that compose one value into another value.
-Like a candy factory , first the candy is mixed with the ingredients (_fn1_), 
+Like a candy factory , first the candy is mixed with the ingredients (_fn1_),
 then it gets its shape _(fn2)_ , then it get its color _(fn3)_ at least it get its taste _(fn3)_. **Function composition** 🚀λ🤩
 
-``` js
-const compose = (...fns) => (x) => fns.reduceRight((acc, fn) => fn(acc), x);
+```js
+const compose = (...fns) => x => fns.reduceRight((acc, fn) => fn(acc), x)
 
-const pipe = (...fns) => (x) => fns.reduce((acc, fn) => fn(acc), x);
+const pipe = (...fns) => x => fns.reduce((acc, fn) => fn(acc), x)
 ```
 
 with **Typescript**
 
-``` ts
+```ts
 const compoese = (...fns: FunctionTypes[]) => <T>(val: T) =>
   fns.reduce(
     (currentValue: T, currentFunction: Function) =>
       currentFunction(currentValue),
-    val
-  );
+    val,
+  )
 ```
 
 ## List transform <a name = "list-transform"></a>
 
-``` js
+```js
 const game = {
-    suspects: [{
-            name: "Aleks",
-            color: "red",
-        },
-        {
-            name: "Bob",
-            color: "blue",
-        },
-    ],
-};
+  suspects: [
+    {
+      name: "Aleks",
+      color: "red",
+    },
+    {
+      name: "Bob",
+      color: "blue",
+    },
+  ],
+}
 
 /**
  *
  * @param {Array} list
  */
 function render(list) {
-    return list.map((item) => {
-        let obj = {
-            name: item.name.toUpperCase(),
-            color: item.color.toUpperCase(),
-        };
-        return obj;
-    });
+  return list.map(item => {
+    let obj = {
+      name: item.name.toUpperCase(),
+      color: item.color.toUpperCase(),
+    }
+    return obj
+  })
 }
 
 // console.log(render(game["suspects"]));
 
 function print() {
-    for (let val of game["suspects"]) {
-        console.log(val);
-    }
+  for (let val of game["suspects"]) {
+    console.log(val)
+  }
 }
 
 const print2 = () => {
-    game["suspects"].forEach((val) => console.log(val));
-};
+  game["suspects"].forEach(val => console.log(val))
+}
 
 function findMurderer() {
-    for (let val of game.suspects) {
-        for (let key in val) {
-            if (val[key].toLowerCase() === "bob") {
-                console.log("found the murderer");
-            }
-        }
+  for (let val of game.suspects) {
+    for (let key in val) {
+      if (val[key].toLowerCase() === "bob") {
+        console.log("found the murderer")
+      }
     }
+  }
 }
 ```
 
@@ -147,19 +146,19 @@ function findMurderer() {
 what is read only ?
 A data structure that can be read but not written to, that never has to be mutated. A important concept of Immutability.
 
-``` js
+```js
 // How to make a read only Data structure in Js with Object.freeze.
 
 const dog = {
-    name: "doggie",
-    legs: 4,
-    breed: "pug",
-};
+  name: "doggie",
+  legs: 4,
+  breed: "pug",
+}
 
-const immutableDog = Object.freeze(dog);
+const immutableDog = Object.freeze(dog)
 
-dog.name = "Boris";
-immutableDog.name = "Logan";
+dog.name = "Boris"
+immutableDog.name = "Logan"
 
 // We still have
 /**
@@ -168,77 +167,98 @@ immutableDog.name = "Logan";
  */
 
 const foo = {
-    a: "hello",
-    b: 45,
-    obj: {
-        h: 10,
-    },
-};
+  a: "hello",
+  b: 45,
+  obj: {
+    h: 10,
+  },
+}
 
-const fooI = Object.freeze(foo);
+const fooI = Object.freeze(foo)
 
-foo.a = "bye";
-foo.obj.h = 20; // will be 20
+foo.a = "bye"
+foo.obj.h = 20 // will be 20
 
 // console.log(foo);
 // object.freeze will not make a deep freeze on the object
 ```
 
-``` ts
-type Fn1 = (x: number) => number;
+```ts
+type Fn1 = (x: number) => number
 
-type FunctionsType = Fn1;
+type FunctionsType = Fn1
 
-export const addByOne = (x: number) => x + 1;
-export const pow = (x: number) => x * x;
+export const addByOne = (x: number) => x + 1
+export const pow = (x: number) => x * x
 
-const doSomeMathPlease = (x: number, fn: FunctionsType) => fn(x);
+const doSomeMathPlease = (x: number, fn: FunctionsType) => fn(x)
 
-let giveMeSix = doSomeMathPlease(5, addByOne); // 6
-let giveMe25 = doSomeMathPlease(5, pow); // 25
+let giveMeSix = doSomeMathPlease(5, addByOne) // 6
+let giveMe25 = doSomeMathPlease(5, pow) // 25
 ```
 
-<<<<<<< HEAD
-## λ Transduction <a name = "transduction"></a>
-
-Transduction is a way how we can transform our function in a shape the we want in a mathimtical way. For example when we want to compose our functions.
-Declarative way not imperative.
- >> Reshapes our functions
- >> compositions of reducers
-=======
 Trampoline , how to prevent a stack over flow when working with recursion.
 What we want is to move between 0 and 1 , this what the trampoline technique actually does.
 
 ```js
 function trampoline(fn) {
   return (...args) => {
-    let result = fn(...args);
+    let result = fn(...args)
     while (typeof result === "function") {
-      result = result();
+      result = result()
     }
-    return result;
-  };
+    return result
+  }
 }
 
-const isVowel = (char) => ["a", "e", "i", "o", "u"].includes(char);
+const isVowel = char => ["a", "e", "i", "o", "u"].includes(char)
 
 let countVowels = trampoline((count, str) => {
-  count += isVowel(str[0]) ? 1 : 0;
-  if (str.length <= 1) return count;
-  return () => countVowels(count, str.slice(1));
-});
+  count += isVowel(str[0]) ? 1 : 0
+  if (str.length <= 1) return count
+  return () => countVowels(count, str.slice(1))
+})
 
-countVowels = R.curry(2, countVowels)(0);
+countVowels = R.curry(2, countVowels)(0)
 ```
->>>>>>> 19851edae8c6fd65012cad8297ccea3cf5209171
+
+## Transduction <a name = "transduction"></a>
+
+A mathematical way how we can change/transform the shape of our functions.
+For example we want to compose ore pipe our functions but they are not in the given shape, we will make a transduction.
+
+```ts
+const addOne = (x: number): number => x + 1
+const removeOne = (x: number): number => x - 1
+const odd = (x: number): boolean => x % 2 !== 0
+
+const mapWithReduce = <T>(arr: T[], mappingFn: Function) => {
+  return arr.reduce((list: T[], v) => {
+    list.push(mappingFn(v))
+    return list
+  }, [])
+}
+
+const filterWithReduce = <T>(arr: T[], predicateFn: Function) => {
+  return arr.reduce((list: T[], v) => {
+    if (predicateFn(v)) list.push(v)
+    return list
+  }, [])
+}
+
+let list = [2, 5, 100, 23, 45, 24, 17, 19, 3, 4, 5, 6]
+
+let increase = mapWithReduce(list, addOne)
+let oddList = filterWithReduce(list, odd)
+```
 
 ## ✍️ Authors <a name = "authors"></a>
 
-Me [Marcell Ciszek Druzynski](#)
+Me [Marcell Ciszek Druzynski]()
 
 ## 🎉 Thanks to <a name = "acknowledgement"></a>
 
-* Kent C. Dodds, Kyle Simpson, Kyle Shevlin, Tyler Clark, Bianca Gandolfo
-* FreeCode camp, Egghead io , LevelUp Tutorials
+- Kent C. Dodds, Kyle Simpson, Kyle Shevlin, Tyler Clark, Bianca Gandolfo
+- FreeCode camp, Egghead io , LevelUp Tutorials
 
 For all the inspiration.
