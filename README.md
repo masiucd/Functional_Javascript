@@ -34,16 +34,17 @@ Functional programming is about:
 **Functional concepts**
 
 - [📝 Table of Contents](#-table-of-contents)
-- [🧐 About <a name = "about"></a>](#-about-)
-- [⛏️ Tools in project <a name = "built_using"></a>](#️-tools-in-project-)
-- [curried functions <a name = "curry"></a>](#curried-functions-)
-- [pure functions <a name = "pf"></a>](#pure-functions-)
-- [partial application <a name = "ps"></a>](#partial-application-)
-- [compose and pipe function <a name = "compose"></a>](#compose-and-pipe-function-)
-- [List transform <a name = "list-transform"></a>](#list-transform-)
-- [Higher order functions <a name = "hof"></a>](#higher-order-functions-)
-- [Immutable <a name = "imdb"></a>](#immutable-)
-- [Transduction <a name = "transduction"></a>](#transduction-)
+- [🧐 About ](#-about-)
+- [⛏️ Tools in project ](#️-tools-in-project-)
+- [curried functions ](#curried-functions-)
+- [pure functions ](#pure-functions-)
+- [partial application ](#partial-application-)
+- [compose and pipe function ](#compose-and-pipe-function-)
+- [List transform ](#list-transform-)
+- [Higher order functions ](#higher-order-functions-)
+- [Immutable](#immutable-)
+- [Transduction](#transduction-)
+- [Monad](#monad)
 - [✍️ Authors <a name = "authors"></a>](#️-authors-)
 - [🎉 Thanks to <a name = "acknowledgement"></a>](#-thanks-to-)
 
@@ -82,7 +83,7 @@ const compoese = (...fns: FunctionTypes[]) => <T>(val: T) =>
   fns.reduce(
     (currentValue: T, currentFunction: Function) =>
       currentFunction(currentValue),
-    val,
+    val
   )
 ```
 
@@ -251,6 +252,11 @@ let list = [2, 5, 100, 23, 45, 24, 17, 19, 3, 4, 5, 6]
 let increase = mapWithReduce(list, addOne)
 let oddList = filterWithReduce(list, odd)
 ```
+
+## Monad <a name = "monad"></a>
+
+a wrapper around a value with different kind of behaviors, that is going to make it easier to work with other values in a specific way.
+Monad is a kind of a functor, any value that we can map a operation over it is a functor
 
 ## ✍️ Authors <a name = "authors"></a>
 
