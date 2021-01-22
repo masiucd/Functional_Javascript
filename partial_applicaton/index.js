@@ -1,23 +1,37 @@
-// @ts-nocheck
+;(async () => {
+  const getData = baseURL => endPoint => cb => {
+    const responseData = fetch(`${baseURL}/${endPoint}`)
+      .then(data => data.json())
+      .then(d => cb(d))
+      .catch(err => console.error(err))
 
-const fetch = require('node-fetch');
+    return responseData
+  }
 
-const getFromApi = baseUrl => endPoint => fn => {
-  fetch(`${baseUrl}${endPoint}`)
-    .then(res => res.json())
-    .then(data => fn(data))
-    .catch(err => {
-      console.log(err);
-    });
-};
+  const jsP = getData("https://jsonplaceholder.typicode.com")
+  const users = jsP("users")
+  const posts = jsP("posts")
 
-const getJsonData = getFromApi('https://jsonplaceholder.typicode.com');
+  const getNames = async () => {
+    return await users(x => x.map(user => user.name))
+  }
+  const getPosts = async () => {
+    return await posts(x => x.map(user => user.title))
+  }
 
-const getUsers = getJsonData('/users');
-const getTodos = getJsonData('/todos');
+  const createElement = el => className => {
+    const element = document.createElement(el)
+    element.classList.add(className)
+    return element
+  }
 
-getUsers(data => data.map(user => console.log(user.name, ' user ')));
+  const render = className => async list => {
+    const wrapper = document.createElement("ul")
+    createElement("ul", className)
+    document.body.append(wrapper)
+    wrapper.innerHTML += list.map(x => `<li>${x}</li> `).join("")
+  }
 
-getTodos(data =>
-  data.slice(0, 10).map(todo => console.log(todo.title, ' todo '))
-);
+  render("users")(await getNames())
+  render("posts")(await getPosts())
+})()

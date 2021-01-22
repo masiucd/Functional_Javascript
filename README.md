@@ -10,7 +10,13 @@
 ---
 
 <p align="center">
-Writing functional programming is a very powerful programming paradigm that I really like and trying to get better at for every day. I think it is a massive trend nowadays. Many people see the benefits of writing functional programs that are based on pure functions and to avoid side effects in your programs.
+  In computer science, functional programming is a programming paradigm, where programs/applications are constructed and composing together using functions.
+  It is a Declarative way of writing your code comparing to how you could write it in a Imperative way as well.
+
+In functional programming, functions are treated as first-class citizens, meaning that they can be bound to variables and values, returned from other functions and get passed as arguments, just as any other data type like variables,arrays,vectors ore objects.
+Functional programing is based on not causing any side effects and writing and using pure functions, This repo purpose is to go through the very fundamentals in functional programing using `Javascript\TS`.
+The rules should be bound to the functional way of writing applications which meaning that any of this concepts/logic works the same in languages like `Haskell`, `Clojure` `REason ML`, ore `O caml`.
+
 </p>
 <br>
 <hr>
@@ -59,10 +65,49 @@ Functional programming is about:
 
 So what is a pure function?
 We always expect to take some input and return some output.
-I can take the ruturn value and replace the function call with the return.
+I can take the return value and replace the function call with the return.
 You receive the same output for every same input, for every time you call the function.
+For example `Array.protoType.push` actually mutates the array when we want to add a new element to the existing array.
+Here is a util function how we could use the `Array.protoType.push` in a mure pure and functional way.
+
+```ts
+const xs = [1, 2, 3, 4, 5]
+
+const push = <T>(value: T) => (xs: T[]) => {
+  const list = [...xs]
+  list.push(value)
+  return list
+}
+
+let newList = push(99)(xs)
+
+console.log(xs)
+console.log(newList)
+// [ 1, 2, 3, 4, 5 ]
+// [ 1, 2, 3, 4, 5, 99 ]
+```
 
 ## partial application <a name = "ps"></a>
+
+Partial application works similarly to a curried function, instead you don't use all your function calls at once at you instead pre load the functions with some values, that in alter point using the final argument/arguments, for example with a http request where we can preloaded the `URL` and the add a given endpoint and for the last part add a callback function.
+
+```js
+const getData = baseURL => endPoint => cb => {
+  const responseData = fetch(`${baseURL}/${endPoint}`)
+    .then(data => data.json())
+    .then(d => cb(d))
+    .catch(err => console.error(err))
+
+  return responseData
+}
+
+const jsP = getData("https://jsonplaceholder.typicode.com")
+const users = jsP("users")
+const posts = jsP("posts")
+
+users(x => console.log(x.map(u => u.name))) // [list of names]
+posts(x => console.log(x.map(u => u.title))) // [list of posts]
+```
 
 ## compose and pipe function <a name = "compose"></a>
 
@@ -79,12 +124,8 @@ const pipe = (...fns) => x => fns.reduce((acc, fn) => fn(acc), x)
 with **Typescript**
 
 ```ts
-const compoese = (...fns: FunctionTypes[]) => <T>(val: T) =>
-  fns.reduce(
-    (currentValue: T, currentFunction: Function) =>
-      currentFunction(currentValue),
-    val
-  )
+const compose = (...fns: FunctionTypes[]) => <T>(val: T) =>
+  fns.reduce((currentValue: T, currentFunction: Function) => currentFunction(currentValue), val)
 ```
 
 ## List transform <a name = "list-transform"></a>

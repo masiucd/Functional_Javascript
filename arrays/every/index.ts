@@ -1,15 +1,15 @@
-interface Fields {
-  field: string;
-  value: string;
-  errors: Array<string>;
+interface Field {
+  field: string
+  value: string
+  errors: Array<string>
 }
 interface People {
-  field: string;
-  value: string;
-  errors: Array<string>;
+  field: string
+  value: string
+  errors: Array<string>
 }
 
-const fields: Fields[] = [
+const fields: Field[] = [
   {
     field: "email",
     value: "masiuboy@example.com",
@@ -20,9 +20,9 @@ const fields: Fields[] = [
     value: "",
     errors: ["Bigg bugg!!!!"],
   },
-];
+]
 
-const isValid = fields.every((field) => field.errors.length === 0);
+const isValid = (xs: any[]) => xs.every(field => field.errors.length === 0)
 
 const people = [
   {
@@ -37,6 +37,8 @@ const people = [
     name: "Kim",
     age: 12,
   },
-];
+]
 
-const canAllPeopleDrive = people.every((p) => p.age > 18);
+const canAllPeopleDrive = (xs: Record<string, string | number>[]) => xs.every(p => p.age > 18)
+
+export { isValid, canAllPeopleDrive, Field }
