@@ -264,6 +264,30 @@ let countVowels = trampoline((count, str) => {
 countVowels = R.curry(2, countVowels)(0)
 ```
 
+Classes is not common ore actually not implemented at all in functional languages like `Haskell` or `O caml`. The reason is that classes are not a pure and immutable way of writing our objects, but to show a example how we could make a pure instance of a class with a Javascript example, take look:
+
+```ts
+export class ImmutableGlass {
+  name: string
+  amount: number
+  constructor(name: string, amount: number) {
+    this.name = name
+    this.amount = amount
+  }
+  drink(value: number) {
+    return new ImmutableGlass(this.name, this.amount - value)
+  }
+}
+
+const glass = new ImmutableGlass("pepsi", 100)
+
+const newDrink = glass.drink(20)
+console.log(glass) // still {name:"pepsi", amount:100}
+console.log(newDrink) // {name:"pepsi", amount:80}
+```
+
+instead of directly mutate the amount property we create a new class and return it.
+
 ## Transduction <a name = "transduction"></a>
 
 A mathematical way how we can change/transform the shape of our functions.
