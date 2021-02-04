@@ -1,5 +1,4 @@
 // @ts-nocheck
-const fetch = require("node-fetch")
 
 const getData = url => endpoint => fn => {
   fetch(`${url}${endpoint}`)

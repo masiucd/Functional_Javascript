@@ -355,8 +355,71 @@ const identity = <T>(value: T): T => value
 
 ```ts
 const words = " hello world...".split(/\s|\b/)
+// [ "", "hello", "world", "..." ]
 const filterWords = words.filter(identity)
+// [ "hello", "world", "..." ]
 ```
+
+The identity simply returns it's input and since filter weill remove all it's falsy values in this case we simply remove the first index of whitespace in our list
+
+```ts
+export const output = <T>(input: T, formatFn: Function = identity): T => {
+  return formatFn(input)
+}
+
+export const uppercase = (s: string): string => s.toUpperCase()
+
+const helloWithNoChange = output("hello") // hello
+
+const helloToUpper = output<string>("hello", uppercase) // HELLO
+```
+
+In this case we will always be sure that either we return the same input if no extra function is provided as a second argument or we will transform our input.
+
+```ts
+const sum = (x: number, y: number) => {
+  return x + y
+}
+
+const spreadArgs = (fn: Function) => <T>(argsList: T[]) => fn(...argsList)
+
+const giveMeTheResult = (fn: any) => {
+  return fn([1, 2])
+}
+
+console.log(giveMeTheResult(spreadArgs(sum))) // 3
+```
+
+To make this example to work we need a helper function like `spreadArgs` in this case to spread out the values in the array and use them in our sum function.
+
+We can also create a function that will do the opposite then `spreadArgs`, lets call it `gatherArgs`.
+
+```ts
+const gatherArgs = (fn: Function) => <T>(...args: T[]) => fn(args)
+```
+
+So let's apply `gatherArgs` into a `reduce`
+
+```ts
+const gatherArgs = (fn: Function) => <T>(...args: T[]) => fn(args)
+
+const foo = ([a, b]: number[]) => {
+  return a + b
+}
+
+;[1, 2, 3, 4, 5].reduce(gatherArgs(foo)) // 15
+```
+
+```ts
+const partial = <T>(fn: Function, ...presetArgs: T[]) => <T>(...laterArgs: T[]) =>
+  fn(...presetArgs, ...laterArgs)
+
+const add = (a: number, b: number) => a + b
+
+const xs = [1, 2, 3].map(partial(add, 10)) // [11, 12, 13]
+```
+
+presentArgs in this case will be `[10,10,10]`. ry to use the `partial` function to understand how it works.
 
 ## ✍️ Authors <a name = "authors"></a>
 
@@ -364,11 +427,5 @@ Me [Marcell Ciszek Druzynski]()
 
 ## 🎉 Thanks to <a name = "acknowledgement"></a>
 
-- Kent C. Dodds, Kyle Simpson, Kyle Shevlin, Tyler Clark, Bianca Gandolfo
-- FreeCode camp, Egghead io , LevelUp Tutorials
-
-For all the inspiration.
-
-```
-
-```
+- Kent C. Dodds, Kyle Simpson, Kyle Shevlin,
+- FreeCode camp, Egghead io.

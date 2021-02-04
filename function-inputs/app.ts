@@ -2,19 +2,18 @@ export const unary = (fn: Function) => <T>(arg: T) => fn(arg)
 
 export const identity = <T>(value: T): T => value
 
-// const xs = ["1", "2", "3", "4", "5", "6", "7", "8"].map(parseInt)
-// [
-//   1, NaN, NaN, NaN,
-// NaN, NaN, NaN, NaN
-// ]
+export const output = <T>(input: T, formatFn: Function = identity): T => {
+  return formatFn(input)
+}
+export const spreadArgs = (fn: Function) => <T>(argsList: T[]) => fn(...argsList)
+export const gatherArgs = (fn: Function) => <T>(...args: T[]) => fn(args)
 
-const xs = ["1", "2", "3", "4", "5", "6", "7", "8"].map(unary(parseInt))
-/**
- *  [
-  1, 2, 3, 4,
-  5, 6, 7, 8
-]
- */
+export const partial = <T>(fn: Function, ...presetArgs: T[]) => <T>(...laterArgs: T[]) => {
+  console.log(presetArgs)
+  return fn(...presetArgs, ...laterArgs)
+}
 
-const words = " hello world...".split(/\s|\b/)
-console.log(words)
+const add = (a: number, b: number) => a + b
+
+let xs = [1, 2, 3].map(partial(add, 10))
+console.log(xs)
