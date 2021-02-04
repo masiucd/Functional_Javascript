@@ -51,6 +51,7 @@ Functional programming is about:
 - [Immutable](#immutable-)
 - [Transduction](#transduction-)
 - [Monad](#monad)
+- [Function inputs](#fn-inp)
 - [✍️ Authors <a name = "authors"></a>](#️-authors-)
 - [🎉 Thanks to <a name = "acknowledgement"></a>](#-thanks-to-)
 
@@ -323,6 +324,40 @@ let oddList = filterWithReduce(list, odd)
 a wrapper around a value with different kind of behaviors, that is going to make it easier to work with other values in a specific way.
 Monad is a kind of a functor, any value that we can map a operation over it is a functor
 
+<hr/>
+
+## Function inputs <a name = "fn-inp">
+
+```ts
+const unary = (fn: Function) => <T>(arg: T) => fn(arg)
+;["1", "2", "3", "4", "5", "6", "7", "8"].map(parseInt)
+// [
+//   1, NaN, NaN, NaN,
+// NaN, NaN, NaN, NaN
+// ]
+;["1", "2", "3", "4", "5", "6", "7", "8"].map(unary(parseInt))
+/**
+ *  [
+  1, 2, 3, 4,
+  5, 6, 7, 8
+]
+ */
+```
+
+This will happened just of how `parseint` works, it takes a str and a radix as a second argument.
+the unary function will help us to ignore the radix argument and get the expected result.
+
+Also a common utility function used by FP:s is a function that takes a argument and does nothing other then returning it.
+
+```ts
+const identity = <T>(value: T): T => value
+```
+
+```ts
+const words = " hello world...".split(/\s|\b/)
+const filterWords = words.filter(identity)
+```
+
 ## ✍️ Authors <a name = "authors"></a>
 
 Me [Marcell Ciszek Druzynski]()
@@ -333,3 +368,7 @@ Me [Marcell Ciszek Druzynski]()
 - FreeCode camp, Egghead io , LevelUp Tutorials
 
 For all the inspiration.
+
+```
+
+```
