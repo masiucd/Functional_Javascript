@@ -44,13 +44,39 @@ Functional programming is about:
 
 3. Functions with limited side effects - any changes, or mutations, to the state of the program outside the function are carefully controlled
 
-**Functional concepts**
+**Why should we care?**
+`FP` make the code more predictable and safer to use, easier to test and debug.
+Writing function code in `JS` feel more of the nature with `JS` with first class functions.
 
-- [📝 Table of Contents](#-table-of-contents)
-- [🧐 About ](#-about-)
-- [⛏️ Tools in project ](#️-tools-in-project-)
+**Imperative**
+
+```js
+let a = 99
+let b = 21
+
+console.log(`a = ${a} and b = ${b}`)
+```
+
+**Declarative**
+
+```js
+const identity = n => {
+  return `n = ${n}`
+}
+
+identity(99)
+identity(21)
+```
+
+<!-- **Functional concepts** -->
+
+<!-- - [📝 Table of Contents](#-table-of-contents) -->
+<!-- - [🧐 About ](#-about-) -->
+<!-- - [⛏️ Tools in project ](#️-tools-in-project-) -->
+
     <!-- - [curried functions ](#curried-functions-) -->
     <!-- - [pure functions ](#pure-functions-) -->
+
   <!-- - [partial application ](#partial-application-) -->
   <!-- - [compose and pipe function ](#compose-and-pipe-function-) -->
   <!-- - [List transform ](#list-transform-) -->

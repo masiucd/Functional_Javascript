@@ -43,3 +43,16 @@ console.log(newList)
 // [ 1, 2, 3, 4, 5 ]
 // [ 1, 2, 3, 4, 5, 99 ]
 ```
+
+A impure function since we working with the DOM, the outside world!
+
+```js
+function setColor(R, G, B) {
+  const hex = rgbToHex(R, G, B)
+  const colorMe = document.getElementById("color-me")
+  colorMe.setAttribute("style", "color: " + hex)
+}
+```
+
+> > do nothing but return output
+> > based on nothing but input
