@@ -13,7 +13,12 @@ export const partial = <T>(fn: Function, ...presetArgs: T[]) => <T>(...laterArgs
   return fn(...presetArgs, ...laterArgs)
 }
 
-const add = (a: number, b: number) => a + b
-
-let xs = [1, 2, 3].map(partial(add, 10))
-console.log(xs)
+const curry = (fn: Function, arity = fn.length, nextCurried: Function) =>
+  (nextCurried = (prevArgs: any) => (nextArg: any) => {
+    const args = [...prevArgs, nextArg]
+    if (args.length >= arity) {
+      return fn(...args)
+    } else {
+      return nextCurried(args)
+    }
+  })([])

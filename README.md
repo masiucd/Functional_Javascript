@@ -15,7 +15,7 @@
 
 In functional programming, functions are treated as first-class citizens, meaning that they can be bound to variables and values, returned from other functions and get passed as arguments, just as any other data type like variables,arrays,vectors ore objects.
 Functional programing is based on not causing any side effects and writing and using pure functions, This repo purpose is to go through the very fundamentals in functional programing using `Javascript\TS`.
-The rules should be bound to the functional way of writing applications which meaning that any of this concepts/logic works the same in languages like `Haskell`, `Clojure` `REason ML`, ore `O caml`.
+The rules should be bound to the functional way of writing applications which meaning that any of this concepts/logic works the same in languages like `Haskell`, `Clojure` `Reason ML`, ore `Ocaml`.
 
 </p>
 <br>
@@ -28,6 +28,13 @@ The rules should be bound to the functional way of writing applications which me
 - [Thanks to](#acknowledgement)
 
 ## 🧐 About <a name = "about"></a>
+
+`FP` is mindset a workflow another way of thinking when writing code.
+
+`Imperative code`: follow my commands, do this then that.
+`Declarative code`: I want this, so give me that.
+`OOP`: Keep state to yourself send/receive messages.
+`FP`: ???
 
 Functional programming is about:
 
@@ -42,53 +49,25 @@ Functional programming is about:
 - [📝 Table of Contents](#-table-of-contents)
 - [🧐 About ](#-about-)
 - [⛏️ Tools in project ](#️-tools-in-project-)
-- [curried functions ](#curried-functions-)
-- [pure functions ](#pure-functions-)
-- [partial application ](#partial-application-)
-- [compose and pipe function ](#compose-and-pipe-function-)
-- [List transform ](#list-transform-)
-- [Higher order functions ](#higher-order-functions-)
-- [Immutable](#immutable-)
-- [Transduction](#transduction-)
-- [Monad](#monad)
-- [Function inputs](#fn-inp)
-- [✍️ Authors <a name = "authors"></a>](#️-authors-)
-- [🎉 Thanks to <a name = "acknowledgement"></a>](#-thanks-to-)
+    <!-- - [curried functions ](#curried-functions-) -->
+    <!-- - [pure functions ](#pure-functions-) -->
+  <!-- - [partial application ](#partial-application-) -->
+  <!-- - [compose and pipe function ](#compose-and-pipe-function-) -->
+  <!-- - [List transform ](#list-transform-) -->
+  <!-- - [Higher order functions ](#higher-order-functions-) -->
+  <!-- - [Immutable](#immutable-) -->
+  <!-- - [Transduction](#transduction-) -->
+  <!-- - [Monad](#monad) -->
+  <!-- - [Function inputs](#fn-inp) -->
+  <!-- - [✍️ Authors <a name = "authors"></a>](#️-authors-) -->
+  <!-- - [🎉 Thanks to <a name = "acknowledgement"></a>](#-thanks-to-) -->
 
 ## ⛏️ Tools in project <a name = "built_using"></a>
 
 - [JS](https://developer.mozilla.org/en-US/) - JavaScript
 - [TS](https://www.typescriptlang.org/) - Typescript
 
-## curried functions <a name = "curry"></a>
-
-## pure functions <a name = "pf"></a>
-
-So what is a pure function?
-We always expect to take some input and return some output.
-I can take the return value and replace the function call with the return.
-You receive the same output for every same input, for every time you call the function.
-For example `Array.protoType.push` actually mutates the array when we want to add a new element to the existing array.
-Here is a util function how we could use the `Array.protoType.push` in a mure pure and functional way.
-
-```ts
-const xs = [1, 2, 3, 4, 5]
-
-const push = <T>(value: T) => (xs: T[]) => {
-  const list = [...xs]
-  list.push(value)
-  return list
-}
-
-let newList = push(99)(xs)
-
-console.log(xs)
-console.log(newList)
-// [ 1, 2, 3, 4, 5 ]
-// [ 1, 2, 3, 4, 5, 99 ]
-```
-
-## partial application <a name = "ps"></a>
+<!-- ## partial application <a name = "ps"></a>
 
 Partial application works similarly to a curried function, instead you don't use all your function calls at once at you instead pre load the functions with some values, that in alter point using the final argument/arguments, for example with a http request where we can preloaded the `URL` and the add a given endpoint and for the last part add a callback function.
 
@@ -428,4 +407,4 @@ Me [Marcell Ciszek Druzynski]()
 ## 🎉 Thanks to <a name = "acknowledgement"></a>
 
 - Kent C. Dodds, Kyle Simpson, Kyle Shevlin,
-- FreeCode camp, Egghead io.
+- FreeCode camp, Egghead io. -->
