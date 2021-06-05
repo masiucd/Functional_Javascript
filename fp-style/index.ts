@@ -1,4 +1,4 @@
-const floor = (n: number) => Math.floor(n)
+export const floor = (n: number) => Math.floor(n)
 const sqrt = (n: number) => Math.sqrt(n)
 const length = <T>(list: Array<T>): number => list.length
 const head = <T>(list: Array<T>): T => list[0]
@@ -9,6 +9,8 @@ const overFive = (x: number) => x > 5
 const isEven = (x: number) => x % 2 === 0
 const isOdd = (x: number) => !isEven(x)
 const half = (n: number) => floor(n / 2)
+export const push = <T>(list: Array<T>, value: T) => [...list, value]
+export const pop = <T>(list: Array<T>) => [...list].slice(0, -1)
 
 const add = (a: number, b: number) => a + b
 
@@ -61,16 +63,3 @@ const listOverFive = filter(overFive, numbers)
 const evenNumbers = filter(isEven, numbers)
 const halfNums = map(half, numbers)
 const total = reduce(add, 0, [1, 2, 3])
-
-const max = reduce(
-  (a: number, b: number) => {
-    if (a > b) {
-      initialValue = a
-      return a
-    }
-  },
-  1,
-  numbers
-)
-
-console.log({ max })
