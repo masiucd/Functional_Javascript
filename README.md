@@ -40,18 +40,18 @@ Functional programming is about:
 **Functional concepts**
 
 - [📝 Table of Contents](#-table-of-contents)
-- [🧐 About ](#-about-)
-- [⛏️ Tools in project ](#️-tools-in-project-)
-- [curried functions ](#curried-functions-)
-- [pure functions ](#pure-functions-)
-- [partial application ](#partial-application-)
-- [compose and pipe function ](#compose-and-pipe-function-)
-- [List transform ](#list-transform-)
-- [Higher order functions ](#higher-order-functions-)
-- [Immutable](#immutable-)
-- [Transduction](#transduction-)
-- [Monad](#monad)
-- [Function inputs](#fn-inp)
+- [🧐 About <a name = "about"></a>](#-about-)
+- [⛏️ Tools in project <a name = "built_using"></a>](#️-tools-in-project-)
+- [curried functions <a name = "curry"></a>](#curried-functions-)
+- [pure functions <a name = "pf"></a>](#pure-functions-)
+- [partial application <a name = "ps"></a>](#partial-application-)
+- [compose and pipe function <a name = "compose"></a>](#compose-and-pipe-function-)
+- [List transform <a name = "list-transform"></a>](#list-transform-)
+- [Higher order functions <a name = "hof"></a>](#higher-order-functions-)
+- [Immutable <a name = "imdb"></a>](#immutable-)
+- [Transduction <a name = "transduction"></a>](#transduction-)
+- [Monad <a name = "monad"></a>](#monad-)
+- [Function inputs <a name = "fn-inp">](#function-inputs-a-name--fn-inp)
 - [✍️ Authors <a name = "authors"></a>](#️-authors-)
 - [🎉 Thanks to <a name = "acknowledgement"></a>](#-thanks-to-)
 
@@ -74,11 +74,13 @@ Here is a util function how we could use the `Array.protoType.push` in a mure pu
 ```ts
 const xs = [1, 2, 3, 4, 5]
 
-const push = <T>(value: T) => (xs: T[]) => {
-  const list = [...xs]
-  list.push(value)
-  return list
-}
+const push =
+  <T>(value: T) =>
+  (xs: T[]) => {
+    const list = [...xs]
+    list.push(value)
+    return list
+  }
 
 let newList = push(99)(xs)
 
@@ -117,16 +119,24 @@ Like a candy factory , first the candy is mixed with the ingredients (_fn1_),
 then it gets its shape _(fn2)_ , then it get its color _(fn3)_ at least it get its taste _(fn3)_. **Function composition** 🚀λ🤩
 
 ```js
-const compose = (...fns) => x => fns.reduceRight((acc, fn) => fn(acc), x)
+const compose =
+  (...fns) =>
+  x =>
+    fns.reduceRight((acc, fn) => fn(acc), x)
 
-const pipe = (...fns) => x => fns.reduce((acc, fn) => fn(acc), x)
+const pipe =
+  (...fns) =>
+  x =>
+    fns.reduce((acc, fn) => fn(acc), x)
 ```
 
 with **Typescript**
 
 ```ts
-const compose = (...fns: FunctionTypes[]) => <T>(val: T) =>
-  fns.reduce((currentValue: T, currentFunction: Function) => currentFunction(currentValue), val)
+const compose =
+  (...fns: FunctionTypes[]) =>
+  <T>(val: T) =>
+    fns.reduce((currentValue: T, currentFunction: Function) => currentFunction(currentValue), val)
 ```
 
 ## List transform <a name = "list-transform"></a>
@@ -329,7 +339,10 @@ Monad is a kind of a functor, any value that we can map a operation over it is a
 ## Function inputs <a name = "fn-inp">
 
 ```ts
-const unary = (fn: Function) => <T>(arg: T) => fn(arg)
+const unary =
+  (fn: Function) =>
+  <T>(arg: T) =>
+    fn(arg)
 ;["1", "2", "3", "4", "5", "6", "7", "8"].map(parseInt)
 // [
 //   1, NaN, NaN, NaN,
@@ -381,7 +394,10 @@ const sum = (x: number, y: number) => {
   return x + y
 }
 
-const spreadArgs = (fn: Function) => <T>(argsList: T[]) => fn(...argsList)
+const spreadArgs =
+  (fn: Function) =>
+  <T>(argsList: T[]) =>
+    fn(...argsList)
 
 const giveMeTheResult = (fn: any) => {
   return fn([1, 2])
@@ -395,13 +411,19 @@ To make this example to work we need a helper function like `spreadArgs` in this
 We can also create a function that will do the opposite then `spreadArgs`, lets call it `gatherArgs`.
 
 ```ts
-const gatherArgs = (fn: Function) => <T>(...args: T[]) => fn(args)
+const gatherArgs =
+  (fn: Function) =>
+  <T>(...args: T[]) =>
+    fn(args)
 ```
 
 So let's apply `gatherArgs` into a `reduce`
 
 ```ts
-const gatherArgs = (fn: Function) => <T>(...args: T[]) => fn(args)
+const gatherArgs =
+  (fn: Function) =>
+  <T>(...args: T[]) =>
+    fn(args)
 
 const foo = ([a, b]: number[]) => {
   return a + b
@@ -411,8 +433,10 @@ const foo = ([a, b]: number[]) => {
 ```
 
 ```ts
-const partial = <T>(fn: Function, ...presetArgs: T[]) => <T>(...laterArgs: T[]) =>
-  fn(...presetArgs, ...laterArgs)
+const partial =
+  <T>(fn: Function, ...presetArgs: T[]) =>
+  <T>(...laterArgs: T[]) =>
+    fn(...presetArgs, ...laterArgs)
 
 const add = (a: number, b: number) => a + b
 
