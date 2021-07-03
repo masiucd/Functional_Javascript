@@ -1,12 +1,12 @@
 interface Bound {
-  id: number;
-  departure: string;
-  arrival: string;
+  id: number
+  departure: string
+  arrival: string
 }
 
 interface Flight {
-  id: string;
-  bounds: Bound[];
+  id: string
+  bounds: Bound[]
 }
 
 const flights: Flight[] = [
@@ -25,14 +25,16 @@ const flights: Flight[] = [
       },
     ],
   },
-];
+]
 
-const getArrLength = <T>(list: Array<T>): number => {
-  return list.length;
-};
+export const getArrLength = <T>(list: Array<T>): number => {
+  return list.length
+}
 
-const isValidLength = (fn: Function) => (compareLength: number) => <T>(
-  list: Array<T>,
-) => fn(list) > compareLength;
+const isValidLength =
+  (fn: Function) =>
+  (compareLength: number) =>
+  <T>(list: Array<T>) =>
+    fn(list) > compareLength
 
 // console.log(isValidLength(getArrLength)(2)(flights));
